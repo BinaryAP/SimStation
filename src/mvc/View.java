@@ -1,30 +1,25 @@
 package mvc;
 
 import javax.swing.*;
-import javax.swing.border.Border;
-import java.awt.*;
 
 public class View extends JPanel implements Subscriber {
 
-    protected Model model;
+	public Model model;
+    
+	public View(Model newModel) {
+		model = newModel;
+	}
 
-    public View(Model model) {
-        this.model = model;
-        model.subscribe(this);
-        Border blackLine = BorderFactory.createLineBorder(Color.BLACK);
-        this.setBorder(blackLine);
-    }
+	@Override
+	public void update() {
 
-    public void setModel(Model nModel) {
-        if (this.model != null) {
-            this.model.unsubscribe(this);
-        }
-        this.model = nModel;
-        if (nModel != null) {
-            model.subscribe(this);
-            update();
-        }
-    }
+	}
+
+	public void setModel(Model newModel) {
+		model.unsubscribe(this);
+		model = newModel;
+		model.subscribe(this);
+	}
 
     @Override
     public void update() {
