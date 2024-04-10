@@ -3,7 +3,7 @@ package mvc;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Publisher {
+public class Publisher implements Serializable {
 
     private List<Subscriber> subscribers = new LinkedList<>();
 
