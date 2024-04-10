@@ -2,7 +2,7 @@ package mvc;
 
 import java.io.Serializable;
 
-public abstract class Model extends Publisher implements Serializable {
+public abstract class Model extends Publisher {
 
     Boolean unsavedChanges = false;
     String fileName = null;
