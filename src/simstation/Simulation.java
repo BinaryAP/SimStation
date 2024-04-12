@@ -9,40 +9,43 @@ public class Simulation extends Model {
     private int clock;
     private ArrayList<Agent> agents;
 
-    public Simulation(){
+/*    public Simulation(){
         clock = 0;
         agents = new ArrayList<Agent>();
-    }
+    }*/
 
     public void start(){
+        clock = 0;
+        agents = new ArrayList<Agent>();
+
         startTimer();
         for(Agent agent : agents)
             agent.start();
         changed();
     }
 
-    public void suspend(){
+    public synchronized void suspend(){
         stopTimer();
         for(Agent agent : agents)
             agent.suspend();
         changed();
     }
 
-    public void resume(){
+    public synchronized void resume(){
         startTimer();
         for(Agent agent : agents)
             agent.resume();
         changed();
     }
 
-    public void stop(){
+    public synchronized void stop(){
         stopTimer();
         for(Agent agent : agents)
             agent.stop();
         changed();
     }
 
-    public Agent getNeighbor(Agent agent, double radius){
+    public synchronized Agent getNeighbor(Agent agent, double radius){
 
         for(Agent potentialNeighbor : agents)
             if(getDistanceAB(agent, potentialNeighbor) < radius)//if an agent is within the accepted radius
