@@ -22,11 +22,11 @@ public class SimulationView extends View {
         super.paintComponent(gc);
 
         for (Agent agent : simulation.getAgents()) {
-            int x = agent.getX();
-            int y = agent.getY();
+            int x = agent.getxc();
+            int y = agent.getyc();
             int size = agent.getSize();
 
-            gc.drawOval(x, y,size,size);
+            gc.drawOval(x, y, size, size);
             gc.fillOval(x, y, size, size);
         }
     }
