@@ -21,12 +21,17 @@ class Drunk extends Agent {
 }
 
 
-class RandomWalkFactory extends SimulationFactory {
-    public Model makeModel() { return new RandomWalkSimulation(); }
+class RandomWalkFactory extends SimstationFactory {
+    public Model makeModel() { System.out.println("make new walking model");return new RandomWalks(); }
     public String getTitle() { return "Random Walks";}
+
+    @Override
+    public String[] getHelp() {
+        return new String[0];
+    }
 }
 
-public class RandomWalkSimulation extends Simulation {
+public class RandomWalks extends Simulation {
 
     public void populate() {
         for(int i = 0; i < 15; i++)
@@ -34,7 +39,7 @@ public class RandomWalkSimulation extends Simulation {
     }
 
     public static void main(String[] args) {
-        AppPanel panel = new SimulationPanel(new RandomWalkFactory());
+        AppPanel panel = new SimstationPanel(new RandomWalkFactory());
         panel.display();
     }
 

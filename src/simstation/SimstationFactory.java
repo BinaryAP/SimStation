@@ -5,7 +5,7 @@ import mvc.*;
 public abstract class SimstationFactory implements AppFactory {
 
     public Model makeModel() {
-
+        System.out.println("make a new model");
         return new Simulation();
     }
 

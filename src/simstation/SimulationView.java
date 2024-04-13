@@ -19,15 +19,18 @@ public class SimulationView extends View {
 
     @Override
     protected void paintComponent(Graphics gc) {
-        super.paintComponent(gc);
 
+        super.paintComponent(gc);
         for (Agent agent : simulation.getAgents()) {
             int x = agent.getxc();
             int y = agent.getyc();
+            System.out.println(x);
+            System.out.println(y);
             gc.setColor(Color.WHITE);
             gc.drawOval(x, y, 10, 5);
             gc.fillOval(x, y, 10, 5);
         }
+//        repaint();
     }
 
     public void propertyChanged(int oldX, int oldY, int newX, int newY) {

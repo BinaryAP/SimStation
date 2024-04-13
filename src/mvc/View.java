@@ -21,13 +21,15 @@ public class View extends JPanel implements Subscriber {
     }
 
     public void setModel(Model newModel) {
-        if (this.model != null) {
-            this.model.unsubscribe(this);
+//        if (this.model != null) {
+//            this.model.unsubscribe(this);
+//        }
+//        this.model = newModel;
+//        if (newModel != null) {
+//            model.subscribe(this);
+//            update();
+        model.unsubscribe(this); //me
+        model=newModel;
+        model.subscribe(this);//me
         }
-        this.model = newModel;
-        if (newModel != null) {
-            model.subscribe(this);
-            update();
-        }
-    }
 }

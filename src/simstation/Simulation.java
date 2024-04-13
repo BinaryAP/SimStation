@@ -9,15 +9,13 @@ public class Simulation extends Model {
     private int clock;
     private ArrayList<Agent> agents;
 
-/*    public Simulation(){
+    public Simulation(){
         clock = 0;
         agents = new ArrayList<Agent>();
-    }*/
+    }
 
     public void start(){
         clock = 0;
-        agents = new ArrayList<Agent>();
-
         startTimer();
         for(Agent agent : agents)
             agent.start();
@@ -54,18 +52,19 @@ public class Simulation extends Model {
         return null;
     }
     public String getStats(){
-        return String.format("agents: %d/nclock: %d", agents.length, clock);
+        return String.format("agents: %d\nclock: %d", agents.size(), clock);
     }
 
     private double getDistanceAB(Agent agentA, Agent agentB) {
         //distance formula
-        return Math.sqrt(Math.pow(agentA.getxc - agentB.getxc, 2) + Math.pow(agentA.getyc - agentB.getyc, 2));
+        return Math.sqrt(Math.pow(agentA.getxc() - agentB.getxc(), 2) + Math.pow(agentA.getyc() - agentB.getyc(), 2));
     }
 
     public void addAgent(Agent agent){
         agents.add(agent);
         agent.setWorld(this);
     }
+
 
     public void populate(){}//empty by default, specify in subclasses
 
@@ -83,9 +82,13 @@ public class Simulation extends Model {
     private class ClockUpdater extends TimerTask {
         public void run() {
             clock++;
+//            for(Agent agent : agents)
+//                agent.run();
         }
     }
-
+    public ArrayList<Agent> getAgents(){
+        return agents;
+    }
     // etc.
 
 }
