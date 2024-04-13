@@ -24,10 +24,29 @@ public class SimulationView extends View {
         for (Agent agent : simulation.getAgents()) {
             int x = agent.getxc();
             int y = agent.getyc();
-            int size = agent.getSize();
-
-            gc.drawOval(x, y, size, size);
-            gc.fillOval(x, y, size, size);
+            gc.setColor(Color.WHITE);
+            gc.drawOval(x, y, 10, 5);
+            gc.fillOval(x, y, 10, 5);
         }
+    }
+
+    public void propertyChanged(int oldX, int oldY, int newX, int newY) {
+        Simulation simulation = (Simulation) model;
+        int width = Math.abs(newX-oldX) + 10;
+        int height = Math.abs(newY-oldY) + 10;
+        int x, y;
+        if (oldX < newX) {
+            x = oldX;
+        }
+        else {
+            x = newX;
+        }
+        if (oldY < newY) {
+            y = oldY;
+        }
+        else {
+            y = newY;
+        }
+        repaint(x, y, width, height);
     }
 }
