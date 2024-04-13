@@ -9,6 +9,8 @@ public class StatsCommand extends Command {
     }
 
     public void execute() {
-
+        Simulation simulation = (Simulation) model;
+        String[] items = simulation.stats();
+        Utilities.inform(items);
     }
 }
