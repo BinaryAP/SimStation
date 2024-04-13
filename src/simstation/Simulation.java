@@ -53,10 +53,13 @@ public class Simulation extends Model {
 
         return null;
     }
+    public String getStats(){
+        return String.format("agents: %d/nclock: %d", agents.length, clock);
+    }
 
     private double getDistanceAB(Agent agentA, Agent agentB) {
         //distance formula
-        return Math.sqrt(Math.pow(agentA.getxC - agentB.getxC, 2) + Math.pow(agentA.getyC - agentB.getyC, 2));
+        return Math.sqrt(Math.pow(agentA.getxc - agentB.getxc, 2) + Math.pow(agentA.getyc - agentB.getyc, 2));
     }
 
     public void addAgent(Agent agent){
