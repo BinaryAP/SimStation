@@ -5,17 +5,15 @@ import mvc.*;
 public abstract class SimstationFactory implements AppFactory {
 
     public Model makeModel() {
-        System.out.println("make a new model");
+        //System.out.println("make a new model");
         return new Simulation();
     }
 
     public View makeView(Model model) {
-
         return new SimulationView((Simulation)model);
     }
 
     public String[] getEditCommands() {
-
         return new String[] {"Start", "Suspend", "Resume", "Stop", "Stats"};
     }
     public Command makeEditCommand(Model model, String type, Object source) {
