@@ -2,8 +2,6 @@ package randomwalk;
 
 import mvc.*;
 import simstation.*;
-import java.awt.*;
-import java.util.Iterator;
 
 class Drunk extends Agent {
 
@@ -22,8 +20,13 @@ class Drunk extends Agent {
 
 
 class RandomWalkFactory extends SimstationFactory {
-    public Model makeModel() { System.out.println("make new walking model");return new RandomWalks(); }
-    public String getTitle() { return "Random Walks";}
+    public Model makeModel() {
+        //System.out.println("make new walking model");
+        return new RandomWalks();
+    }
+    public String getTitle() {
+        return "Random Walks";
+    }
 
     @Override
     public String[] getHelp() {
