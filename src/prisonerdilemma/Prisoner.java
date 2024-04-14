@@ -22,10 +22,10 @@ public class Prisoner extends Agent {
     public void update() {
         heading = Heading.random();
         Prisoner neighbor =  (Prisoner) world.getNeighbor(this, 10.00);
-        System.out.println("before update thread = " + this + "fit = " + fitness + "stra = " + strategy.cooperate() + " nifgh = " + neighbor + " neighbor strat = " + neighbor.getStrategy().cooperate());
+        //System.out.println("before update thread = " + this + "fit = " + fitness + "stra = " + strategy.cooperate() + " nifgh = " + neighbor + " neighbor strat = " + neighbor.getStrategy().cooperate());
         updateFitness(neighbor.strategy.cooperate());
-        System.out.println(" thread = " + this + "fit = " + fitness);
-        System.out.println(" neighbor = " + neighbor + " neigh fit = " + neighbor.getFitness());
+        //System.out.println(" thread = " + this + "fit = " + fitness);
+        //System.out.println(" neighbor = " + neighbor + " neigh fit = " + neighbor.getFitness());
         int steps = Utilities.rng.nextInt(10) + 1;
         move(steps);
     }
