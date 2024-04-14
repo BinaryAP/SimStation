@@ -4,7 +4,7 @@ import java.io.Serializable;
 import mvc.Utilities;
 abstract public class Agent implements Runnable, Serializable {
     transient protected Thread myThread;
-    private String name;
+    protected String name;
     public Heading heading;
     private int xc;
     private int yc;
