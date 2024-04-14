@@ -10,6 +10,9 @@ public class StartCommand extends Command {
 
     public void execute() {
         Simulation simulation = (Simulation) model;
+        if (!((Simulation) model).getAgents().isEmpty()) {
+            ((Simulation) model).getAgents().clear();
+        }
         simulation.populate();
         simulation.start();
     }
