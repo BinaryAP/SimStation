@@ -6,12 +6,13 @@ import simstation.*;
 
 public class PrisonerSimulation extends Simulation {
 
-    public Strategy getStrategy(int val) {
-        if (val == 0)
+    public Strategy getStrategy(int value) {
+        int mod = value % 4;
+        if (mod == 0)
             return new Cooperate();
-        else if (val == 1)
+        else if (mod == 1)
             return new RandomlyCooperate();
-        else if (val == 2)
+        else if (mod == 2)
             return new Tit4Tat();
         else
             return new Cheat();
@@ -54,11 +55,9 @@ public class PrisonerSimulation extends Simulation {
     public void populate() {
         Prisoner p;
         Strategy s;
-        if (!getAgents().isEmpty()) return;
         for(int i = 0; i < 40; i++) {
-            int mod = i % 4;
-            s = getStrategy(mod);
-            p = new Prisoner(s, this);
+            s = getStrategy(i);
+            p = new Prisoner("prisoner" + i, s, this);
             s.setPrisoner(p);
             addAgent(p);
         }
