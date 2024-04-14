@@ -45,10 +45,12 @@ public class Simulation extends Model {
 
     public synchronized Agent getNeighbor(Agent agent, double radius){
 
-        for(Agent potentialNeighbor : agents)
-            if(getDistanceAB(agent, potentialNeighbor) < radius)//if an agent is within the accepted radius
-                return potentialNeighbor;
-
+        for(Agent potentialNeighbor : agents) {
+            if (potentialNeighbor != agent) {
+                if (getDistanceAB(agent, potentialNeighbor) < radius)//if an agent is within the accepted radius
+                    return potentialNeighbor;
+            }
+        }
         return null;
     }
     public String getStats(){
