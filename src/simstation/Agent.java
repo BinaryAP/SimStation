@@ -4,28 +4,28 @@ import java.io.Serializable;
 import mvc.Utilities;
 abstract public class Agent implements Runnable, Serializable {
     transient protected Thread myThread;
-    private String name;
+    protected String name;
     public Heading heading;
     private int xc;
     private int yc;
     private boolean suspended;
     private boolean stopped;
-    private Simulation world;
+    protected Simulation world;
     public Agent(){
         this.name = null;
         suspended=false;
         stopped=false;
         myThread=null;
-        xc = Utilities.rng.nextInt(201);
-        yc= Utilities.rng.nextInt(201);
+        xc = Utilities.rng.nextInt(Simulation.WorldSize);
+        yc= Utilities.rng.nextInt(Simulation.WorldSize);
     }
     public Agent(String name){
         this.name = name;
         suspended=false;
         stopped=false;
         myThread=null;
-        xc = Utilities.rng.nextInt(201);
-        yc= Utilities.rng.nextInt(201);
+        xc = Utilities.rng.nextInt(Simulation.WorldSize);
+        yc= Utilities.rng.nextInt(Simulation.WorldSize);
 
     }
     public void setWorld(Simulation s){
@@ -77,15 +77,15 @@ abstract public class Agent implements Runnable, Serializable {
     }
     public synchronized void move(int steps){
         if(xc < 0 ){
-            xc = 800;
+            xc = Simulation.WorldSize;
         }
-        else if(xc> 800){
+        else if(xc> Simulation.WorldSize){
             xc=0;
         }
         else if(yc<0){
-            yc=800;
+            yc=Simulation.WorldSize;
         }
-        else if(yc > 800){
+        else if(yc > Simulation.WorldSize){
             yc=0;
         }
 
