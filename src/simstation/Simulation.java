@@ -6,6 +6,7 @@ import mvc.*;
 public class Simulation extends Model {
 
     transient private Timer timer; // timers aren't serializable
+    public static int WorldSize = 500;
     private int clock;
     private ArrayList<Agent> agents;
 
@@ -44,12 +45,18 @@ public class Simulation extends Model {
     }
 
     public synchronized Agent getNeighbor(Agent agent, double radius){
+        int i = Utilities.rng.nextInt(agents.size());
+        int start = i;
 
-        for(Agent potentialNeighbor : agents)
-            if(getDistanceAB(agent, potentialNeighbor) < radius)//if an agent is within the accepted radius
-                return potentialNeighbor;
-
-        return null;
+        while(true) {
+            Agent potentialPartner = agents.get(i);
+            if (potentialPartner != agent && getDistanceAB(agent, potentialPartner) < radius) {
+                return potentialPartner;
+            }
+            i = (i + 1) % agents.size();
+            if (i == start)
+                return null;
+        }
     }
     public String getStats(){
         return String.format("agents: %d\nclock: %d", agents.size(), clock);
