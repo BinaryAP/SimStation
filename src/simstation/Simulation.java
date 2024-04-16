@@ -86,6 +86,10 @@ public class Simulation extends Model {
         timer.purge();
     }
 
+    public Iterator<Agent> iterator() {
+        return agents.iterator();
+    }
+
     private class ClockUpdater extends TimerTask {
         public void run() {
             clock++;
