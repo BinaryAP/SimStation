@@ -48,6 +48,7 @@ Stats: shows simulation stats(all bird speeds)"""};
 public class Flocking extends Simulation {
 
     public void populate() {
+        agents = new ArrayList<Agent>();
         for(int i = 0; i < 15; i++)
             addAgent(new Flock());
     }

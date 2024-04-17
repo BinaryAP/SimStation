@@ -4,6 +4,8 @@ package prisonerdilemma;
 import mvc.*;
 import simstation.*;
 
+import java.util.ArrayList;
+
 public class PrisonerSimulation extends Simulation {
 
     public Strategy getStrategy(int value) {
@@ -53,6 +55,7 @@ public class PrisonerSimulation extends Simulation {
     }
 
     public void populate() {
+        agents = new ArrayList<Agent>();
         Prisoner p;
         Strategy s;
         for(int i = 0; i < 40; i++) {

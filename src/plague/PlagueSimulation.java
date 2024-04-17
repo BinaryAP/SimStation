@@ -15,6 +15,7 @@ public class PlagueSimulation extends Simulation {
 
     @Override
     public void populate() {
+        agents = new ArrayList<Agent>();
         for(int i = 0; i < totalAgents; i++)
             addAgent(new PlagueAgent(i));
 

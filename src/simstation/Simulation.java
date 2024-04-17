@@ -8,7 +8,7 @@ public class Simulation extends Model {
     transient private Timer timer; // timers aren't serializable
     public static int WorldSize = 500;
     private int clock;
-    private ArrayList<Agent> agents;
+    protected ArrayList<Agent> agents;
 
     public Simulation(){
         clock = 0;
