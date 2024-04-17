@@ -3,6 +3,7 @@ package simstation;
 import mvc.*;
 import javax.swing.*;
 import java.awt.event.ActionListener;
+import java.util.Iterator;
 
 public class SimstationPanel extends AppPanel implements ActionListener {
 
@@ -26,6 +27,14 @@ public class SimstationPanel extends AppPanel implements ActionListener {
         controlPanel.add(stats);
 
     }
-
+    public void setModel(Model m) {
+        super.setModel(m); // calling AppPanel.setModel(m)
+        Simulation s = (Simulation)m;
+        Iterator<Agent> it = s.iterator();
+        while(it.hasNext()) {
+            Thread t = new Thread(it.next());
+            t.start(); // this will call Agent.run (see below)
+        }
+    }
 }
 

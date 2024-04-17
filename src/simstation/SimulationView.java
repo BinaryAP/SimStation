@@ -6,31 +6,26 @@ import java.awt.*;
 public class SimulationView extends View {
 
     protected Graphics gc;
-    Simulation simulation;
     public SimulationView(Simulation simulation) {
         super(simulation);
-        this.simulation = simulation;
     }
 
     public void update() {
-        Simulation simulation = (Simulation) model;
         repaint();
     }
 
     @Override
     protected void paintComponent(Graphics gc) {
-
+        Simulation simulation = (Simulation) model;
         super.paintComponent(gc);
         for (Agent agent : simulation.getAgents()) {
             int x = agent.getxc();
             int y = agent.getyc();
-            System.out.println(x);
-            System.out.println(y);
             gc.setColor(Color.WHITE);
             gc.drawOval(x, y, 10, 5);
             gc.fillOval(x, y, 10, 5);
         }
-//        repaint();
+        repaint();
     }
 
     public void propertyChanged(int oldX, int oldY, int newX, int newY) {
