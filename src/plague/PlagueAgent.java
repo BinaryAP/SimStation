@@ -6,7 +6,6 @@ import simstation.Heading;
 
 public class PlagueAgent extends Agent {
     public static int infected = 0;// # of infected
-    public static int recovered;// # of recovered
 
     private boolean isInfected;
 

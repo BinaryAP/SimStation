@@ -22,7 +22,6 @@ public class PlagueSimulation extends Simulation {
 
     public String getStats() {
         float infected = covertToPercent(PlagueAgent.infected);
-        float recovered = covertToPercent(PlagueAgent.recovered);
         return String.format("%s\ninfected: %.2f%%", super.getStats(), infected);
     }
     public float covertToPercent(int i){

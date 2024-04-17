@@ -12,6 +12,7 @@ public class PlagueView extends SimulationView {
     }
     protected void paintComponent(Graphics gc) {
         PlagueSimulation sim = (PlagueSimulation)model;
+        //super.paintComponent(gc);
         for (Agent agent : sim.getAgents()) {
             PlagueAgent plagueAgent = (PlagueAgent)agent;
             int x = agent.getxc();
@@ -24,5 +25,6 @@ public class PlagueView extends SimulationView {
             gc.drawRect(x, y, 5, 5);
             gc.fillRect(x, y, 5, 5);
         }
+        repaint();
     }
 }
