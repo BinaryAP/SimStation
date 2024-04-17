@@ -22,8 +22,10 @@ public class SimulationView extends View {
             int x = agent.getxc();
             int y = agent.getyc();
             gc.setColor(Color.WHITE);
-            gc.drawOval(x, y, 10, 5);
-            gc.fillOval(x, y, 10, 5);
+            gc.drawRect(x, y, 5, 5);
+            gc.fillRect(x, y, 5, 5);
+//            gc.drawOval(x, y, 10, 5);
+//            gc.fillOval(x, y, 10, 5);
         }
         repaint();
     }
