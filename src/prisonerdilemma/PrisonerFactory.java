@@ -14,6 +14,11 @@ public class PrisonerFactory extends SimstationFactory {
 
     @Override
     public String[] getHelp() {
-        return new String[] {"click Start to populate simulation world and start program, click Suspend to suspend movement of agents and pause program, click Resume to resume program, click Stop to stop movement of agents and terminate program, and click Stats to show average prisoner score by type of strategy used by one quarter of population"};
+        return new String[] {
+                "Start: populate simulation world and start program \n" +
+                        "Suspend: suspend movement of agents and pause program \n" +
+                "Resume: resume program \n" + "Stop: stop movement of agents \n" +
+                        "Stats: to show average prisoner score by type of strategy used by one quarter of population"
+        };
     }
 }
