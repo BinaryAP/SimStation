@@ -27,15 +27,24 @@ class Flock extends Agent {
 
 
 class FlockFactory extends SimstationFactory {
-    public Model makeModel() { return new Flocking(); }
-    public String getTitle() { return "Flocking Simulator";}
+    public Model makeModel() {
+        return new Flocking();
+    }
+
+    public String getTitle() {
+        return "Flocking Simulator";
+    }
 
     @Override
     public String[] getHelp() {
-        return new String[0];
+        return new String[]{"""
+Start: starts the simulation
+Suspend: suspends the simulation
+Resume: resumes the simulation
+Stop: terminates/stops the simulation
+Stats: shows simulation stats(all bird speeds)"""};
     }
 }
-
 public class Flocking extends Simulation {
 
     public void populate() {
